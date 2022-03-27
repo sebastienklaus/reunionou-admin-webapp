@@ -33,7 +33,13 @@ const routes = [
     name: 'login',
     component: () => import('../views/Login.vue'),
     beforeEnter: isAuthGuard
-  }
+  },
+  {
+    path: '/events',
+    name: 'events',
+    component: () => import('../views/Events.vue'),
+    beforeEnter: authGuard
+  },
 ]
 
 const router = new VueRouter({
