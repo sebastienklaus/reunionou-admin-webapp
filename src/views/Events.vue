@@ -7,7 +7,7 @@
                 v-for="event in sortedArray"
                 :key="event.id"
             >
-                <Event :event="event" @deleteEvent="deleteEvent"/>
+                <EventCard :event="event" @deleteEvent="deleteEvent"/>
             </div>
         </div>
     <FlashMessage></FlashMessage>
@@ -15,11 +15,11 @@
 </template>
 
 <script>
-import Event from "../components/EventCard.vue";
+import EventCard from "../components/EventCard.vue";
 
 export default {
     components: {
-        Event,
+        EventCard,
     },
     data() {
         return {

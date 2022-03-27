@@ -43,7 +43,7 @@ const routes = [
   {
     path: '/events/:id',
     name: 'Event',
-    component: () => import('../views/Event.vue'),
+    component: () => import('../views/EventPage.vue'),
     beforeEnter: authGuard
   },
 ]

@@ -1,28 +1,38 @@
 <template>
   <l-map style="height: 300px" :zoom="zoom" :center="center">
     <l-tile-layer :url="url" :attribution="attribution"></l-tile-layer>
-    <l-marker :lat-lng="markerLatLng"></l-marker>
+    <l-marker :lat-lng="markerLatLng">
+      <l-tooltip :options="{ permanent: true, interactive: true }">
+        <p>
+          Événement {{event.title}} à {{event}}
+          <br />
+          le {{event.date}} à {{event.heure}}
+        </p>
+      </l-tooltip>
+    </l-marker>
   </l-map>
 </template>
 
 <script>
-import {LMap, LTileLayer, LMarker} from 'vue2-leaflet';
-
+import { LMap, LTileLayer, LMarker, LPopup, LTooltip } from "vue2-leaflet";
 export default {
   components: {
     LMap,
     LTileLayer,
-    LMarker
+    LMarker,
+    LPopup,
+    LTooltip,
   },
-  data () {
+  props: ["event"],
+  data() {
     return {
-      url: 'https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png',
+      url: "https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png",
       attribution:
         '&copy; <a target="_blank" href="http://osm.org/copyright">OpenStreetMap</a> contributors',
       zoom: 15,
-      center: [51.505, -0.159],
-      markerLatLng: [51.504, -0.159]
+      center: [48.866667, 2.333333],
+      markerLatLng: [48.866667, 2.333333],
     };
-  }
-}
+  },
+};
 </script>
