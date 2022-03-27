@@ -23,7 +23,7 @@
             v-if="username"
         >
             <div class="navbar-start">
-                <router-link class="navbar-item" to="/">Evenements</router-link>
+                <router-link class="navbar-item" to="/events">Evenements</router-link>
                 <router-link to="/new-event" class="navbar-item"
                     >Membres</router-link
                 >
