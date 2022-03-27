@@ -3,13 +3,14 @@
         <h1 class="title has-text-centered">Listes des événements</h1>
         <div class="columns is-multiline is-mobile">
             <div
-                class="column is-half-tablet is-half-desktop is-full-mobile"
+                class="column is-half-tablet is-full-desktop is-full-mobile"
                 v-for="event in sortedArray"
                 :key="event.id"
             >
                 <Event :event="event" @deleteEvent="deleteEvent"/>
             </div>
         </div>
+    <FlashMessage></FlashMessage>
     </div>
 </template>
 
@@ -41,7 +42,10 @@ export default {
             this.$api
                 .delete("events/" + id)
                 .then((response) => {
-                    console.log('delete succes!');
+                    this.flashMessage.success({
+                        title: 'Événement supprimé',
+                        message: 'Cet événement à bien été supprimé.'
+                    });
                     this.getEvents();
                 })
                 .catch((err) => console.log(err));

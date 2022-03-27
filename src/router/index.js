@@ -36,8 +36,14 @@ const routes = [
   },
   {
     path: '/events',
-    name: 'events',
+    name: 'Events',
     component: () => import('../views/Events.vue'),
+    beforeEnter: authGuard
+  },
+  {
+    path: '/events/:id',
+    name: 'Event',
+    component: () => import('../views/Event.vue'),
     beforeEnter: authGuard
   },
 ]
