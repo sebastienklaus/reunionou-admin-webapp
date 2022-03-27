@@ -41,7 +41,7 @@ export default {
     data() {
         return {
             email: "test@mail.fr",
-            password: "hellomalek",
+            password: "password",
         };
     },
     methods: {
