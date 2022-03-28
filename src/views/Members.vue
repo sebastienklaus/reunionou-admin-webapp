@@ -1,10 +1,18 @@
 <template>
     <div>
         <h1 class="title has-text-centered">Listes des membres</h1>
+        <div class="field">
+            <p class="control has-icons-left">
+                <input class="input" type="text" v-model="search" placeholder="Recherche d'un membre"/>
+                <span class="icon is-small is-left">
+                    <i class="fas fa-user"></i>
+                </span>
+            </p>
+        </div>
         <div class="columns is-multiline is-mobile">
             <div
                 class="column is-half-tablet is-one-third-desktop is-full-mobile"
-                v-for="member in members"
+                v-for="member in filteredList"
                 :key="member.id"
             >
                 <MemberCard :member="member" @deleteMember="deleteMember"/>
@@ -24,11 +32,7 @@ export default {
     data() {
         return {
             members: [],
-        };
-    },
-    data() {
-        return {
-            members: [],
+            search: '',
         };
     },
     mounted() {
@@ -59,6 +63,11 @@ export default {
         }
     },
     computed: {
+        filteredList() {
+            return this.members.filter(member => {
+                return member.pseudo.toLowerCase().includes(this.search.toLowerCase())
+            })
+        }
     },
 };
 </script>

@@ -1,10 +1,18 @@
 <template>
     <div>
         <h1 class="title has-text-centered">Listes des événements</h1>
+        <div class="field">
+            <p class="control has-icons-left">
+                <input class="input" type="text" v-model="search" placeholder="Recherche d'un événement"/>
+                <span class="icon is-small is-left">
+                    <i class="fas fa-calendar"></i>
+                </span>
+            </p>
+        </div>
         <div class="columns is-multiline is-mobile">
             <div
                 class="column is-half-tablet is-half-desktop is-full-mobile"
-                v-for="event in sortedArray"
+                v-for="event in filteredEvents"
                 :key="event.id"
             >
                 <EventCard :event="event" @deleteEvent="deleteEvent"/>
@@ -24,6 +32,7 @@ export default {
     data() {
         return {
             events: [],
+            search: '',
         };
     },
     mounted() {
@@ -63,6 +72,12 @@ export default {
             }
 
             return this.events.sort(compare);
+        },
+        filteredEvents() {
+            this.sortedArray;
+            return this.events.filter(event => {
+                return event.title.toLowerCase().includes(this.search.toLowerCase())
+            })
         }
     },
 };
