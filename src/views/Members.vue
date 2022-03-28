@@ -50,14 +50,14 @@ export default {
         },
         deleteMember(id){
             this.$api
-                .delete("events/" + id)
+                .delete("members/" + id)
                 .then((response) => {
                     console.log(response.data);
                     this.flashMessage.success({
-                        title: 'Événement supprimé',
-                        message: 'Cet événement à bien été supprimé.'
+                        title: 'Membre supprimé',
+                        message: 'Ce membre à bien été supprimé.'
                     });
-                    this.getEvents();
+                    this.getMembers();
                 })
                 .catch((err) => console.log(err));
         }
