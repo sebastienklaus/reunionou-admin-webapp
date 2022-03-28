@@ -6,10 +6,11 @@ import axios from "axios";
 import FlashMessage from '@smartweb/vue-flash-message';
 import { LMap, LTileLayer, LMarker, LPopup, LTooltip } from "vue2-leaflet";import 'leaflet/dist/leaflet.css';
 import { Icon } from 'leaflet';
+import VueLetterAvatar from 'vue-letter-avatar';
 
 
 Vue.prototype.$api = axios.create({
-  baseURL: "http://docketu.iutnc.univ-lorraine.fr:62015/",
+  baseURL: "http://localhost:62015/",
 });
 
 Vue.config.productionTip = false
@@ -30,6 +31,9 @@ Icon.Default.mergeOptions({
   iconUrl: require('leaflet/dist/images/marker-icon.png'),
   shadowUrl: require('leaflet/dist/images/marker-shadow.png'),
 });
+
+
+Vue.use(VueLetterAvatar);
 
 new Vue({
   router,

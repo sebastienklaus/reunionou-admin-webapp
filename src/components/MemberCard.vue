@@ -1,9 +1,11 @@
 <template>
   <div class="card has-background-link-light">
+      <div class="card-image has-text-centered p-4">
+        <vue-letter-avatar class="is-centered" :name='member.pseudo' size='70' :rounded=true />
+      </div>
     <div class="card-content">
-      <div class="media-left"></div>
       <div class="media-content">
-        <p class="title is-4 has-text-link">
+        <p class="title is-4 has-text-link" >
           {{ member.pseudo }}
         </p>
         <p class="subtitle is-6">Inactif depuis environ {{ getDateUpdate }} jour(s)</p>
@@ -19,7 +21,12 @@
 </template>
 
 <script>
+  
 export default {
+
+components: {
+    
+  },
   props: ["member"],
   data() {
     return {
