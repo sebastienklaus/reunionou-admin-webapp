@@ -31,6 +31,7 @@
                 <button class="button is-success">Se connecter</button>
             </div>
         </form>
+    <FlashMessage></FlashMessage>
     </div>
 </template>
 
@@ -58,7 +59,7 @@ export default {
                     }
                 )
                 .then((response) => {
-                    console.log(jwt_decode(response.data["refresh-token"]).upr); //TODO see what it can be done after login (get user data or JWT data)
+                    // console.log(jwt_decode(response.data["refresh-token"]).upr); //TODO see what it can be done after login (get user data or JWT data)
                     this.$store.commit(
                         "setToken",
                         response.data["refresh-token"]
@@ -69,7 +70,12 @@ export default {
                     );
                     this.$router.push("/");
                 })
-                .catch((err) => console.log(err));
+                .catch((err) => {
+                    this.flashMessage.error({
+                        title: 'Connexion impossible',
+                        message: 'Une erreur est survenue lors de la connexion.'
+                    })
+                });
         },
     },
 };
