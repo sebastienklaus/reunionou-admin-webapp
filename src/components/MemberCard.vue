@@ -4,18 +4,12 @@
       <div class="media-left"></div>
       <div class="media-content">
         <p class="title is-4 has-text-link">
-          {{ member }}
+          {{ member.pseudo }}
         </p>
-        <p class="subtitle is-6">{{ member }} - {{ member }}</p>
+        <p class="subtitle is-6">Inactif depuis environ {{ getDateUpdate }} jour(s)</p>
       </div>
     </div>
     <footer class="card-footer">
-      <router-link class="card-footer-item" :to="'events/'">
-        <a>
-          <i class="fa-solid fa-magnifying-glass"></i>
-          More info
-        </a>
-      </router-link>
       <a @click="deleteMember()" class="card-footer-item has-text-danger">
         <i class="fa-solid fa-trash"></i>
         &nbsp; Delete
@@ -27,10 +21,22 @@
 <script>
 export default {
   props: ["member"],
+  data() {
+    return {
+      newdate: '',
+    }
+  },
   methods: {
     deleteMember() {
       this.$emit("deleteMember", this.member.id);
     },
+  },
+  computed : {
+    getDateUpdate(){
+      this.newdate = (new Date().getTime() - new Date(this.member.updated_at).getTime());
+      this.newdate = Math.round(this.newdate / (86400 * 1000));
+      return this.newdate;
+    }
   },
 };
 </script>

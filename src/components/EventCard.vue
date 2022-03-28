@@ -6,7 +6,7 @@
         <p class="title is-4 has-text-link">
           {{ event.title }}
         </p>
-        <p class="subtitle is-6">{{ event.date }} - {{ event.heure }}</p>
+        <p class="subtitle is-6">Événement du {{ event.date }} (organisé il y a environ {{ getDateCreated }} jour(s))</p>
       </div>
     </div>
     <footer class="card-footer">
@@ -31,6 +31,13 @@ export default {
     deleteEvent() {
       this.$emit("deleteEvent", this.event.id);
     },
+  },
+  computed : {
+    getDateCreated(){
+      this.newdate = (new Date().getTime() - new Date(this.event.date).getTime());
+      this.newdate = Math.round(this.newdate / (86400 * 1000));
+      return this.newdate;
+    }
   },
 };
 </script>
