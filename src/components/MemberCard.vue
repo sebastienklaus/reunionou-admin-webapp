@@ -4,19 +4,19 @@
       <div class="media-left"></div>
       <div class="media-content">
         <p class="title is-4 has-text-link">
-          {{ event.title }}
+          {{ member }}
         </p>
-        <p class="subtitle is-6">{{ event.date }} - {{ event.heure }}</p>
+        <p class="subtitle is-6">{{ member }} - {{ member }}</p>
       </div>
     </div>
     <footer class="card-footer">
-      <router-link class="card-footer-item" :to="'events/' + event.id">
+      <router-link class="card-footer-item" :to="'events/'">
         <a>
           <i class="fa-solid fa-magnifying-glass"></i>
           More info
         </a>
       </router-link>
-      <a @click="deleteEvent()" class="card-footer-item has-text-danger">
+      <a @click="deleteMember()" class="card-footer-item has-text-danger">
         <i class="fa-solid fa-trash"></i>
         &nbsp; Delete
       </a>
@@ -26,10 +26,10 @@
 
 <script>
 export default {
-  props: ["event"],
+  props: ["member"],
   methods: {
-    deleteEvent() {
-      this.$emit("deleteEvent", this.event.id);
+    deleteMember() {
+      this.$emit("deleteMember", this.member.id);
     },
   },
 };

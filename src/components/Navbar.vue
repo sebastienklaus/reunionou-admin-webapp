@@ -24,21 +24,17 @@
         >
             <div class="navbar-start">
                 <router-link class="navbar-item" to="/events">Événements</router-link>
-                <router-link to="/new-event" class="navbar-item">Membres</router-link>
+                <router-link to="/members" class="navbar-item">Membres</router-link>
             </div>
             <div class="navbar-end">
                 <div class="navbar-item">
                     <p>
                         Bonjour
-                        <b
-                            ><router-link to="/edit-profile">{{
-                                username
-                            }}</router-link></b
-                        >
+                        <b>{{username}}</b>
                     </p>
                 </div>
                 <form class="navbar-item" @submit.prevent="deconnect()">
-                    <button class="button is-danger">Se deconnecter</button>
+                    <button class="button is-danger">Se déconnecter</button>
                 </form>
             </div>
         </div>

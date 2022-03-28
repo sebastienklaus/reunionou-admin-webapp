@@ -30,7 +30,12 @@
                   aria-hidden="true"
                 ></i>
               </span>
-              {{ member.pseudo }}
+              {{ member.pseudo }} &nbsp; 
+              <span>
+                <b v-if="member.status === -1">(En attente)</b>
+                <b v-else-if="member.status === 0">(Décliné)</b>
+                <b v-else-if="member.status === 1">(Participe)</b>
+              </span>
             </a>
           </nav>
 
@@ -56,7 +61,7 @@ export default {
   },
   data() {
     return {
-      event: [],
+      event: {location: {}},
       creator: [],
       members: [],
     };

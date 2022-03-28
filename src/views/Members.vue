@@ -1,51 +1,36 @@
 <template>
     <div>
-        <h1 class="title has-text-centered">Listes des événements</h1>
+        <h1 class="title has-text-centered">Listes des membres</h1>
         <div class="columns is-multiline is-mobile">
             <div
                 class="column is-half-tablet is-half-desktop is-full-mobile"
-                v-for="event in sortedArray"
-                :key="event.id"
+                v-for="member in members"
+                :key="member.id"
             >
-                <Member :member="member" />
+                <MemberCard :member="member" @deleteMember="deleteMember"/>
             </div>
         </div>
+    <FlashMessage></FlashMessage>
     </div>
 </template>
 
 <script>
-import Event from "../components/EventCard.vue";
+import MemberCard from "../components/MemberCard.vue";
 
 export default {
     components: {
-        Event,
+        MemberCard,
     },
     data() {
         return {
-            events: [],
+            members: [],
         };
     },
-    methods: {},
     mounted() {
-        this.$api
-            .get("events")
-            .then((response) => {
-                this.events = response.data.events;
-            })
-            .catch((err) => console.log(err));
+    },
+    methods: {
     },
     computed: {
-        sortedArray: function() {
-            function compare(a, b) {
-            if (a.date < b.date)
-                return -1;
-            if (a.date > b.date)
-                return 1;
-            return 0; 
-            }
-
-            return this.events.sort(compare);
-        }
     },
 };
 </script>

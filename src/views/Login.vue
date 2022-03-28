@@ -40,7 +40,7 @@ import jwt_decode from "jwt-decode";
 export default {
     data() {
         return {
-            email: "test@mail.fr",
+            email: "fstanley1t@topsy.com",
             password: "password",
         };
     },

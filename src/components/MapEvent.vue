@@ -4,7 +4,7 @@
     <l-marker :lat-lng="markerLatLng">
       <l-tooltip :options="{ permanent: true, interactive: true }">
         <p>
-          Événement {{event.title}} à {{event}}
+          Événement {{event.title}} à {{event.location.name}}
           <br />
           le {{event.date}} à {{event.heure}}
         </p>

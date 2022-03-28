@@ -46,6 +46,12 @@ const routes = [
     component: () => import('../views/EventPage.vue'),
     beforeEnter: authGuard
   },
+  {
+    path: '/members',
+    name: 'Members',
+    component: () => import('../views/Members.vue'),
+    beforeEnter: authGuard
+  },
 ]
 
 const router = new VueRouter({
