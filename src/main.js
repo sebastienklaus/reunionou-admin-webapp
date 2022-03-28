@@ -9,7 +9,7 @@ import { Icon } from 'leaflet';
 
 
 Vue.prototype.$api = axios.create({
-  baseURL: "http://localhost:62015/",
+  baseURL: "http://docketu.iutnc.univ-lorraine.fr:62015/",
 });
 
 Vue.config.productionTip = false
