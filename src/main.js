@@ -10,7 +10,7 @@ import VueLetterAvatar from 'vue-letter-avatar';
 
 
 Vue.prototype.$api = axios.create({
-  baseURL: "https://docketu.iutnc.univ-lorraine.fr:62016/",
+  baseURL: "http://docketu.iutnc.univ-lorraine.fr:62015/",
 });
 
 Vue.config.productionTip = false
