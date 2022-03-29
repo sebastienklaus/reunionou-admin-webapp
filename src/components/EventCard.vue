@@ -10,7 +10,7 @@
       </div>
     </div>
     <footer class="card-footer">
-      <router-link class="card-footer-item" :to="'events/' + event.id">
+      <router-link class="card-footer-item" :to="event.id">
         <a>
           <i class="fa-solid fa-magnifying-glass"></i>
           More info

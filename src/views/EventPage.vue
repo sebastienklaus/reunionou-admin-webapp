@@ -84,9 +84,9 @@ export default {
     },
     getCreatorEvent(user_id) {
       this.$api
-        .get(user_id)
+        .get('users/' + user_id)
         .then((response) => {
-          this.creator = response.data.user;
+          this.creator = response.data;
         })
         .catch((err) => console.log(err));
     },
