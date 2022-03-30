@@ -10,7 +10,7 @@
       <div class="card">
         <div class="card-content">
           <div class="content">
-            <h2>Créateur de l'événement : {{ creator.fullname }}</h2>
+            <h2>Créateur de l'événement : {{ creator.id }}</h2>
             <p><b>Description</b> : {{ event.description }}</p>
             <br />
             <MapEvent :event="event" />
@@ -18,25 +18,23 @@
 
           <nav class="panel">
             <p class="panel-heading">Membres de l'événement</p>
-            <p class="panel-tabs">
-              <a class="is-active">Tous</a>
-              <a>Participants</a>
-              <a>Non-participants</a>
-            </p>
-            <a class="panel-block" v-for="member in members" :key="member.id">
-              <span class="panel-icon">
-                <i
-                  class="fa-solid fa-user has-text-info"
-                  aria-hidden="true"
-                ></i>
-              </span>
-              {{ member.pseudo }} &nbsp; 
-              <span>
-                <b v-if="member.status === -1">(En attente)</b>
-                <b v-else-if="member.status === 0">(Décliné)</b>
-                <b v-else-if="member.status === 1">(Participe)</b>
-              </span>
-            </a>
+            <div v-for="member in members" :key="member.id" >
+              <a class="panel-block" v-if="creator.id !== member.user_id">
+                  <span class="panel-icon">
+                    <i
+                      class="fa-solid fa-user has-text-info"
+                      aria-hidden="true"
+                    ></i>
+                  </span>
+
+                  {{ member.pseudo }} &nbsp; 
+                  <span>
+                    <b v-if="member.status === -1">(En attente)</b>
+                    <b v-else-if="member.status === 0">(Décliné)</b>
+                    <b v-else-if="member.status === 1">(Participe)</b>
+                  </span>
+              </a>
+            </div>
           </nav>
 
           <div class="content">

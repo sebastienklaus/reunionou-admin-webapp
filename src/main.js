@@ -13,6 +13,13 @@ Vue.prototype.$api = axios.create({
   baseURL: "https://docketu.iutnc.univ-lorraine.fr:62016/",
 });
 
+Vue.prototype.$api.interceptors.request.use(function (config) {
+  if (store.state.token) {
+      config.headers.Authorization = store.state.token;
+  }
+  return config;
+});
+
 Vue.config.productionTip = false
 
 //FlashMessage component
