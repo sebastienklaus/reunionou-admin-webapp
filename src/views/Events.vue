@@ -52,7 +52,6 @@ export default {
             this.$api
                 .delete("events/" + id)
                 .then((response) => {
-                    console.log(response.data);
                     this.flashMessage.success({
                         title: 'Événement supprimé',
                         message: 'Cet événement à bien été supprimé.'

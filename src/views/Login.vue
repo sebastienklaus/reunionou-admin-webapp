@@ -59,7 +59,6 @@ export default {
                     }
                 )
                 .then((response) => {
-                    // console.log(jwt_decode(response.data["refresh-token"]).upr); //TODO see what it can be done after login (get user data or JWT data)
                     this.$store.commit(
                         "setToken",
                         "Bearer " + response.data["refresh-token"]

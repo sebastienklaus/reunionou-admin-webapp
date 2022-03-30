@@ -53,7 +53,6 @@ export default {
             this.$api
                 .delete("members/" + id)
                 .then((response) => {
-                    console.log(response.data);
                     this.flashMessage.success({
                         title: 'Membre supprimé',
                         message: 'Ce membre à bien été supprimé.'
