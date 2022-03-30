@@ -42,6 +42,8 @@ Icon.Default.mergeOptions({
 
 Vue.use(VueLetterAvatar);
 
+Vue.use(require('vue-moment'));
+
 new Vue({
   router,
   store,
