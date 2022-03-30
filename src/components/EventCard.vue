@@ -10,7 +10,7 @@
       </div>
     </div>
     <footer class="card-footer">
-      <router-link class="card-footer-item" :to="'events/' + event.id">
+      <router-link class="card-footer-item" :to="'/events/' + event.id">
         <a>
           <i class="fa-solid fa-magnifying-glass"></i>
           More info
@@ -29,7 +29,9 @@ export default {
   props: ["event"],
   methods: {
     deleteEvent() {
-      this.$emit("deleteEvent", this.event.id);
+      if (confirm("Voulez-vous vraiment supprimer cet événement ?")) {
+        this.$emit("deleteEvent", this.event.id);
+      }
     },
   },
   computed : {

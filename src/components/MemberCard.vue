@@ -35,7 +35,9 @@ components: {
   },
   methods: {
     deleteMember() {
-      this.$emit("deleteMember", this.member.id);
+      if (confirm("Voulez-vous vraiment supprimer ce membre ?")) {
+        this.$emit("deleteMember", this.member.id);
+      }
     },
   },
   computed : {
