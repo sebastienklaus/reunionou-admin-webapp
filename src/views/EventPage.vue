@@ -10,7 +10,7 @@
       <div class="card">
         <div class="card-content">
           <div class="content">
-            <h2>Créateur de l'événement : {{ creator.id }}</h2>
+            <h2>Créateur de l'événement : {{ creator.fullname }}</h2>
             <p><b>Description</b> : {{ event.description }}</p>
             <br />
             <MapEvent :event="event" />
@@ -84,7 +84,7 @@ export default {
       this.$api
         .get('users/' + user_id)
         .then((response) => {
-          this.creator = response.data;
+          this.creator = response.data.user;
         })
         .catch((err) => console.log(err));
     },
