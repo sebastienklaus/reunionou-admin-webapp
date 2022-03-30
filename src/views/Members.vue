@@ -1,6 +1,6 @@
 <template>
     <div>
-        <h1 class="title has-text-centered">Listes des membres</h1>
+        <h1 class="title has-text-centered">Listes des membres non-actifs depuis 6 mois</h1>
         <div class="field">
             <p class="control has-icons-left">
                 <input class="input" type="text" v-model="search" placeholder="Recherche d'un membre"/>

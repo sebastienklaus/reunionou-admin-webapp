@@ -1,7 +1,11 @@
 <template>
     <nav class="navbar" role="navigation" aria-label="main navigation">
         <div class="navbar-brand">
-            <router-link to="/" class="navbar-item title m-0"> REUNIONOU ADMIN</router-link>
+            <!-- <img src="@/assets/images/logo.png" class="mr-2" alt="img" /> -->
+            <router-link to="/" class="navbar-item title is-5 m-0">
+                <img src="@/assets/images/logo.png" class="mr-2" alt="img" />
+                REUNIONOU - ADMIN
+            </router-link>
             <a
                 role="button"
                 v-on:click="showNav = !showNav"
