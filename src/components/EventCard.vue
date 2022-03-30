@@ -6,19 +6,19 @@
         <p class="title is-4 has-text-link">
           {{ event.title }}
         </p>
-        <p class="subtitle is-6">Événement du {{ event.date | moment("DD/MM/YYYY")}} (organisé il y a environ {{ getDateCreated }} jour(s))</p>
+        <p class="subtitle is-6">Événement du {{ event.date | moment("DD/MM/YYYY")}} - organisé il y a environ {{ getDateCreated }} jour(s)</p>
       </div>
     </div>
     <footer class="card-footer">
       <router-link class="card-footer-item" :to="'/events/' + event.id">
         <a>
           <i class="fa-solid fa-magnifying-glass"></i>
-          More info
+          Plus d'informations
         </a>
       </router-link>
       <a @click="deleteEvent()" class="card-footer-item has-text-danger">
         <i class="fa-solid fa-trash"></i>
-        &nbsp; Delete
+        &nbsp; Supprimer
       </a>
     </footer>
   </div>

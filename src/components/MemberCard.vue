@@ -14,7 +14,7 @@
     <footer class="card-footer">
       <a @click="deleteMember()" class="card-footer-item has-text-danger">
         <i class="fa-solid fa-trash"></i>
-        &nbsp; Delete
+        &nbsp; Supprimer
       </a>
     </footer>
   </div>
