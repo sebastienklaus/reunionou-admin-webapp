@@ -41,8 +41,8 @@ import jwt_decode from "jwt-decode";
 export default {
     data() {
         return {
-            email: "fstanley1t@topsy.com",
-            password: "password",
+            email: "",
+            password: "",
         };
     },
     methods: {
