@@ -1,6 +1,7 @@
 <template>
     <div>
-        <h1 class="title has-text-centered">Listes des événements</h1>
+        <h1 class="title has-text-centered">Listes des événements expirés</h1>
+        <h2 class="subtitle has-text-centered">Depuis 6 mois</h2>
         <div class="field">
             <p class="control has-icons-left">
                 <input class="input" type="text" v-model="search" placeholder="Recherche d'un événement"/>
