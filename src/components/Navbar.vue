@@ -42,22 +42,6 @@
                 </form>
             </div>
         </div>
-        <div
-            id="navbar"
-            class="navbar-menu"
-            v-bind:class="{ 'is-active': showNav }"
-            v-else
-        >
-            <div class="navbar-end">
-                <div class="navbar-item">
-                    <div class="buttons">
-                        <router-link class="button is-primary" to="/login"
-                            >Login</router-link
-                        >
-                    </div>
-                </div>
-            </div>
-        </div>
     </nav>
 </template>
 
